@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import time
 
 def IsUsernameTaken(username: str):
-    if len(username) <= 15:
+    if len(username) <= 15 and len(username) >= 3:
         time.sleep(0.25)
         url = f"https://laby.net/@{username}"
         headers = {

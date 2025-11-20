@@ -22,6 +22,9 @@ with open(data_path, "r", encoding="utf-8") as infile, \
     current_line = start_line
 
     for word in infile:
+        if current_line > 21000:
+            print("Reached line limit — stopping.")
+            break
         word = word.strip()
         if not word:
             current_line += 1
@@ -33,7 +36,7 @@ with open(data_path, "r", encoding="utf-8") as infile, \
             outfile.write(word + "\n")
             outfile.flush()
 
-        print(f"{word}: {taken}")
+            print(f"{word}: {taken}")
 
         with open(savedata_path, "w", encoding="utf-8") as s:
             s.write(str(current_line))
